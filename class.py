@@ -1,4 +1,4 @@
-"""
+'''
 #create a class wth property x
 class myclass:
     x=5
@@ -69,18 +69,16 @@ obj = MyClass()
 
 # Accessing instance method using object reference variable obj.
 obj.ins_method()
-"""
-class MyClass:    
-# Constructor declaration.
-    def __init__(self):
-        self.x = 20 # Instance variable
-        self.y = 40 # Instance variable
+
+class MyClass:
+    x = 20 # class variable
+    y = 30 # class variable
 
   # Instance method definition.
     def m1(self):
-      # Accessing instance variables inside an instance method.
-        print("Value of x = ", self.x)
-        print("Value of y = ", self.y)
+      # Accessing class variables using class name inside instance method.
+        print("Value of x = ", MyClass.x)
+        print("Value of y = ", MyClass.y)
 
 # Outside class definition.
 # Create an object of class MyClass.
@@ -89,4 +87,126 @@ obj = MyClass()
 # Accessing instance method using object reference variable obj.
 obj.m1()
 
+
+class MyClass:
+    def m1(self):
+        print("I am m1 method")
+    
+    def m2(self):
+      # Calling an instance method from inside another instance method.
+        self.m1()
+        print("I am m2 method")
+
+
+# Outside class definition.
+# Create an object of class MyClass.
+obj = MyClass()
+# Accessing instance method using object reference variable obj.
+obj.m2()
+
+class Calculator:
+  # Declare instance methods for addition, subtraction, multiplication, and division.
+    def sum(self, x, y):
+        z = x + y # Local variable.
+        print("Addition: ", z)
+    
+    def sub(self, x, y):
+        z = x - y
+        print("Subtraction: ", z)
+    
+    def prod(self, x, y):
+        z = x * y
+        print("Multiplication: ", z)
+    
+    def div(self, x, y):
+        z = x / y
+        print("Division:  ", z)
+
+c1=Calculator()
+c1.sum(100,200)
+c1.prod(10,10)
+c1.sub(20,30)
+c1.div(1000,5)
+
+
+
 # https://www.scientecheasy.com/2023/09/instance-method-in-python.html/
+
+
+class calculator:
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+    def sum(self):
+        z= self.x+self.y
+        return z
+    def sub(self):
+        z= self.x-self.y
+        return z
+    def prod(self):
+        z=self.x*self.y
+        return z
+    def div(self):
+        z= self.x/self.y
+        return z
+
+#Outside the call definition
+c=calculator(60,120)
+
+print(c.sum())
+print(c.sub())
+print(c.prod())
+print(c.div())
+
+
+#Advanced example
+class MyClass:    
+    x = 20 #class variable"
+    def __init__(self):
+        self.x = 30 #instance variable
+    def m1(self):
+        print(self.x) #Accessing instance variable
+        print(MyClass.x) # Accessing class variable
+    
+    #creating an instance of My class
+    
+c = MyClass()
+    
+c.m1()
+
+  
+
+class MyClass:
+    x = 20 # class variable
+    def __init__(self):
+        self.x = 30 # instance variable
+
+    def m1(self):
+        print(self.x) # Accessing instance variable.
+        print(MyClass.x) # Accessing class variable.
+
+# Creating an instance of class MyClass.
+c = MyClass()
+c.m1()
+'''
+
+# Example of class variable, instance variable and local variable
+
+class MyClass:
+    x = 20 #Class variable
+    def __init__(self):
+        self.x = 30 #instance variable
+    
+    def m1(self):
+        x = 40 #local variable
+        print(x)
+    
+    def m2(self):
+        print(self.x)
+        print(MyClass.x)
+        self.m1()
+
+#Creaying instance of my class
+c=MyClass()
+c.m2()    
+        
