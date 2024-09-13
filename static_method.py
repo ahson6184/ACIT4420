@@ -98,7 +98,7 @@ class MyClass:
 
 # Call the static method
 MyClass.static_method()
-'''
+
 
 # Python program to use an instance method inside a static method.
 class MyClass:
@@ -113,3 +113,34 @@ class MyClass:
 
 # Call the static method
 MyClass.static_method()
+
+
+# Python program to call static method inside a non-static method.
+class MyClass:
+    def instance_method(self):
+        print("This is an instance method")
+        self.call_static_method()
+
+    @staticmethod
+    def static_method():
+        print("This is a static method")
+
+    def call_static_method(self):
+        print("Calling static method from instance method")
+        MyClass.static_method()  # Call the static method
+
+# Create an instance of the class
+obj = MyClass()
+
+# Call the instance method
+obj.instance_method()
+'''
+#Static method as date utility function
+from datetime import datetime
+class DateUtils:
+    @staticmethod
+    def current_date():
+        return datetime.now().date()
+
+today = DateUtils.current_date()
+print("Today's Date:", today)
